@@ -1,29 +1,14 @@
 <template>
     <div class="vContainer">
-        <h2>Request for {{project.model}}</h2>
+        <h2>Request for <br />{{project.model}}</h2>
         <p>{{project.code}}</p>
-        <div class="">
+        <div class="hContainer">
             
             <ul class="vContainer">
                 <li v-for="mate in team" :key="mate.userID">{{mate.userName}},{{mate.group}}</li>
             </ul>
 
-
-            <div class="request requestHead">
-                <p>version</p>
-                <p>description</p>
-                <p>basedOn</p>
-                <p>status</p>
-                <p>personInCharge</p>
-            </div>
-
-            <div class="request" v-for="request in requests" :key="request.cmId">
-                <p>{{request.version}}</p>
-                <p>{{request.description}}</p>
-                <p>{{request.basedOn}}</p>
-                <p>{{request.status}}</p>
-                <p>{{request.personInCharge}}</p>
-            </div>
+             <feaResultList :requests="requests"/>
 
         </div>
 
@@ -33,8 +18,12 @@
 
 <script>
     import feaRequest from  "@/data/feaRequest"
+    import feaResultList from "@/components/feaResultList.vue"
 
     export default{ 
+        components:{ 
+            feaResultList
+        },
 
         data(){
             return{
@@ -51,20 +40,13 @@
  .vContainer{
      display:flex;
      flex-direction: column;
+     margin:5px;
+
  }
  .hContainer{ 
-         display:flex;
+     display:flex;
      flex-direction: row; 
- }
- .request{ 
-     width:75%;
-     display: grid;
-     grid-template-columns: 125px 1fr 75px 150px 80px;
-     padding:2px;
      margin:5px;
  }
- .requestHead{ 
-     font-weight: 900;
-     text-transform: uppercase;
- }
+
 </style>
