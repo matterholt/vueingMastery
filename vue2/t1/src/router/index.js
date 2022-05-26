@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import LandingHeader from "@/components/LandingHeader"
 import ThreadLanding from '@/components/ThreadLanding'
+import FormLanding from '@/components/FormLanding'
 
 
 Vue.use(Router)
@@ -18,6 +19,12 @@ export default new Router({
             path:'/landing',
             name:'landingPage',
             component: LandingHeader
+        },
+        {
+            path:'/Form',
+            name:'FormLanding',
+            component: FormLanding,
+            props:true
         },
         {
             path:'/thread/:id',
